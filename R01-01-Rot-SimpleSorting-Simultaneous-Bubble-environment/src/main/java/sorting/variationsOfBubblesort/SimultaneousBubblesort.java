@@ -1,6 +1,7 @@
 package sorting.variationsOfBubblesort;
 
 import sorting.AbstractSorting;
+import util.Util;
 
 /**
  * This algorithm applies two bubblesorts simultaneously. In a same iteration, a
@@ -14,7 +15,17 @@ import sorting.AbstractSorting;
 public class SimultaneousBubblesort<T extends Comparable<T>> extends
 		AbstractSorting<T> {
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		for(int i = leftIndex; i <= rightIndex; i++) {
+			for(int j = leftIndex; j < rightIndex - i; j++) {
+				if(array[j].compareTo(array[j + 1]) > 0) {
+					Util.swap(array, j, j + 1);
+				}
+			}
+			for(int j = rightIndex; j > leftIndex; j--) {
+				if(array[j].compareTo(array[j - 1]) < 0) {
+					Util.swap(array, j, j - 1);
+				}
+			}
+		}
 	}
 }
