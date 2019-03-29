@@ -24,6 +24,13 @@ public class Util {
 		array[j] = temp;
 	}
 
+	public static boolean verifyInput(Object[] array, int i, int j) {
+		if (i > j || array == null || i < 0 || array.length < i || array.length == 0) {
+			return false;
+		}
+		return true;
+	}
+
 	/**
 	 * It says if a specific number is prime or not.
 	 * 

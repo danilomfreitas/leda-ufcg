@@ -15,17 +15,20 @@ import util.Util;
 public class SimultaneousBubblesort<T extends Comparable<T>> extends
 		AbstractSorting<T> {
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		for(int i = leftIndex; i <= rightIndex; i++) {
-			for(int j = leftIndex; j < rightIndex - i; j++) {
-				if(array[j].compareTo(array[j + 1]) > 0) {
-					Util.swap(array, j, j + 1);
+		if (Util.verifyInput(array, leftIndex, rightIndex)) {
+			for (int i = leftIndex; i <= rightIndex; i++) {
+				for (int j = leftIndex; j < rightIndex - i; j++) {
+					if (array[j].compareTo(array[j + 1]) > 0) {
+						Util.swap(array, j, j + 1);
+					}
 				}
-			}
-			for(int j = rightIndex; j > leftIndex; j--) {
-				if(array[j].compareTo(array[j - 1]) < 0) {
-					Util.swap(array, j, j - 1);
+				for(int j = rightIndex; j > leftIndex; j--) {
+					if(array[j].compareTo(array[j - 1]) < 0) {
+						Util.swap(array, j, j - 1);
+					}
 				}
 			}
 		}
+
 	}
 }
